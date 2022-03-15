@@ -22,7 +22,6 @@ ninja
 cd .. # Change working directory back to the root of repository
 ```
 
-.
 
 ### Using the Plugin Benchmark Helper Tool
 
@@ -43,7 +42,7 @@ printf -- '- Me, &\n'      >> benchmarks/data/test.yamlcpp.in
 printf -- '- The Violence' >> benchmarks/data/test.yamlcpp.in
 ```
 
-. As you can see the filename has to use the pattern:
+As you can see the filename has to use the pattern:
 
 ```sh
 test.$plugin.in
@@ -58,14 +57,14 @@ build/bin/benchmark_plugingetset benchmarks/data      user    yamlcpp       get
 #                                 of config file                       plugin method
 ```
 
-. If you can want you can also use the `time` utility to measure the execution time of the last command:
+If you can want you can also use the `time` utility to measure the execution time of the last command:
 
 ```sh
 time build/bin/benchmark_plugingetset benchmarks/data user yamlcpp get
 #>       0.00 real         0.00 user         0.00 sys
 ```
 
-. As you can see in the output above a real configuration file that tests the performance of the [YAML CPP][] plugin should be much larger.
+As you can see in the output above a real configuration file that tests the performance of the [YAML CPP][] plugin should be much larger.
 
 [yaml cpp]: ../../src/plugins/yamlcpp/README.md
 
@@ -81,7 +80,7 @@ it makes sense to use a benchmarking tool such as [hyperfine](https://github.com
 - `benchmarks/data/test.yamlcpp.in`, and
 - `benchmarks/data/test.yanlr.in`
 
-. You can do that using the following commands:
+You can do that using the following commands:
 
 ```sh
 mkdir -p benchmarks/data
@@ -89,7 +88,7 @@ curl -L https://github.com/ElektraInitiative/rawdata/raw/master/YAML/Input/keyfr
 cp benchmarks/data/test.yamlcpp.in benchmarks/data/test.yanlr.in
 ```
 
-. Afterwards you can use:
+Afterwards you can use:
 
 ```sh
 hyperfine --warmup 3 'build/bin/benchmark_plugingetset benchmarks/data user yamlcpp get' \
@@ -113,12 +112,10 @@ Summary
     1.13 ± 0.08 times faster than 'build/bin/benchmark_plugingetset benchmarks/data user yamlcpp get'
 ```
 
-. You can now remove the input files and the folder `benchmarks/data`:
+You can now remove the input files and the folder `benchmarks/data`:
 
 ```sh
 rm benchmarks/data/test.yamlcpp.in
 rm benchmarks/data/test.yanlr.in
 rmdir benchmarks/data
 ```
-
-.
